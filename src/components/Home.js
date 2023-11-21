@@ -10,6 +10,8 @@ export const Home = () => {
         password: ""
     }
 
+    console.log(apiURL)
+
     const [signup, setsignup] = useState(blankInfo)
 
     const [login, setlogin] = useState(blankInfo)
