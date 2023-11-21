@@ -11,6 +11,7 @@ export const Home = () => {
     }
 
     console.log(apiURL)
+    console.log(process.env.NODE_ENV)
 
     const [signup, setsignup] = useState(blankInfo)
 
