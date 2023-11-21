@@ -19,7 +19,7 @@ export const Home = () => {
 
     async function handleSignUp(e){
         e.preventDefault();
-        url = `${apiURL}/signup`
+        let url = `${apiURL}/signup`
         const signupPost = await fetch(url, {
             method: 'POST', 
             headers: {
