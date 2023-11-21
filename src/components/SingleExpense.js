@@ -24,8 +24,9 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
     //call expenses update function
     async function handleUpdateTransaction(e){
         e.preventDefault();
+        let url = `${apiURL}/updateexpense`
         try{
-            const putTrans = await fetch(`${apiURL}/updateexpense`, {
+            const putTrans = await fetch(url, {
                 method: 'PUT', 
                 headers: {
                     'Content-Type': 'application/json'

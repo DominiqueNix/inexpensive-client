@@ -22,9 +22,10 @@ export const AddTransaction =({addTrans, setAddTrans, setSuccess, success, id, c
     //DATE PICKER ISN"T BEING RESET, BUT THE ACTUAL DATE IS
     //IF USER DOESN"T CAHGNE THE TYPE THEN THE TYPE WILL GO IN A S AN EMPTY STRING
     async function handleAddTransaction(e){
+        let url = `${apiURL}/addexpense`
         e.preventDefault();
         console.log(addTrans)
-        const postTrans = await fetch(`${apiURL}/addexpense`, {
+        const postTrans = await fetch(url, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'

@@ -47,7 +47,8 @@ export const UserPage = () => {
     })
 
     async function fetchUserData(){
-        const res = await fetch(`${apiURL}/user/${id}`)
+        let url =`${apiURL}/user/${id}`
+        const res = await fetch(url)
         const data = await res.json();
 
         let cat = [];
@@ -105,8 +106,9 @@ export const UserPage = () => {
 
     async function logout(e){
         e.preventDefault();
+        let url = `${apiURL}/logout/${id}`
         try{
-            const putTrans = await fetch(`${apiURL}/logout/${id}`, {
+            const putTrans = await fetch(url, {
                 method: 'PUT', 
                 headers: {
                     'Content-Type': 'application/json'
