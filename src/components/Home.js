@@ -34,8 +34,11 @@ export const Home = () => {
     }
 
     async function handleLogin(e){
+        
         e.preventDefault();
-        const loginPost = await fetch(`${apiURL}/login`.slice(37), {
+
+        let url = `${apiURL}/login`
+        const loginPost = await fetch(url, {
             method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json'
