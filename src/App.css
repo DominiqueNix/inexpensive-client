@@ -59,6 +59,11 @@
   border-right: #deffd3 solid 1px;
 }
 
+.side-nav > h1 {
+  color: var(--lightgreen) !important;
+  margin-top: 5.5rem;
+}
+
 .side-nav > ul > li {
   list-style: none;
   font-size: 1.5rem;
@@ -77,6 +82,16 @@
   color: #75d0ca;
   border: none;
   box-shadow: none;
+}
+
+.logo{
+  /* margin-left: 27%; */
+  /* margin-top: 5%; */
+  position: absolute;
+  height: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
 }
 /* #cir-1{
   position: absolute;

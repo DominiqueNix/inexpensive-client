@@ -8,6 +8,7 @@ import {useState} from 'react'
 import {Box, styled } from '@mui/system'
 import {Modal} from '@mui/base/Modal'
 import apiURL from '../api';
+import logo from '../logo.png'
 
 export const Nav = ({userData, logout, id, navigate}) => {
 
@@ -29,7 +30,8 @@ export const Nav = ({userData, logout, id, navigate}) => {
         <>
         <div className="side-nav">
             {/* <h1 className='text-center mt-1'>logo</h1> */}
-            <h1 className="display-6 text-center mt-5 border-bottom">Welcome, {userData.username}</h1>
+            <img className='logo' src={logo} alt='website logo'/>
+            <h1 className="display-6 text-center border-bottom">Welcome, {userData.username}</h1>
             <ul className='h-50 d-flex flex-column my-5'>
                 <li className='my-2'><button><i className="bi bi-house"></i> Home</button></li>
                 <li className='my-2'><button><i className="bi bi-bar-chart"></i> Yearly</button></li>
