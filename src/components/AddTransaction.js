@@ -8,19 +8,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
-
-//TODO: TYPE DROPDOWN NEEDS TO RESET
-//TODO: CALENDER NEEDS TO RESET TO CURRENT DATE
-
 export const AddTransaction =({addTrans, setAddTrans, setSuccess, success, id, categories, setCategories}) => {
 
-    // function handleChange(e){
-    //     console.log()
-    //     setAddTrans({...addTrans, name: e.target.value  })
-    // }
-
-    //DATE PICKER ISN"T BEING RESET, BUT THE ACTUAL DATE IS
-    //IF USER DOESN"T CAHGNE THE TYPE THEN THE TYPE WILL GO IN A S AN EMPTY STRING
     async function handleAddTransaction(e){
         let url = `${apiURL}/addexpense`
         e.preventDefault();
@@ -73,7 +62,6 @@ export const AddTransaction =({addTrans, setAddTrans, setSuccess, success, id, c
                             <select className="form-control"  id="type" name="type"
                             onChange={(e) => setAddTrans({...addTrans, type: e.target.value  })} required
                             >
-                                 {/* <option value=""></option> */}
                                 <option value="income">Income</option>
                                 <option value="expense">Expense</option>
                             </select>
@@ -98,46 +86,18 @@ export const AddTransaction =({addTrans, setAddTrans, setSuccess, success, id, c
                             freeSolo
                             id="categories"
                             key={success}
-                            // disableClearable
-                            // defaultValue={null}
                             onChange={(e) => setAddTrans({...addTrans, category:e.target.textContent})}
                             options={categories}
-
-                            // renderInput={(params) => {
-                            //     <TextField 
-                            //     onChange={(e) => setAddTrans({...addTrans, category: e.target.value})}
-                            //     {...params}
-                            //     label="Search Categories"
-                            //     InputProps={{
-                            //         ...params.InputProps, 
-                            //         type:"search",
-                            //     }}
-                            //     />
-                            // }}
                             renderInput={(params) => <TextField 
-                                onChange={(e) => {
-                                    setAddTrans({...addTrans, category: e.target.value})
-                                    // console.log(e)
-                            }}
+                                onChange={(e) => setAddTrans({...addTrans, category: e.target.value})}
                                 {...params} label="Search categories" 
                                 />}
                         />
                         <div className='mt-3'>
-                        <label htmlFor='date'></label>
                         <LocalizationProvider  dateAdapter={AdapterDayjs}>
-                            <DatePicker id="date" defaultValue={dayjs()} onChange={(e) =>{ 
-                                // console.log(e)
-                                setAddTrans({...addTrans, date:`${e.$y}-${e.$M+1}-${e.$D}`})
-                        }}/>
+                            <DatePicker id="date" defaultValue={dayjs()} onChange={(e) => setAddTrans({...addTrans, date:`${e.$y}-${e.$M+1}-${e.$D}`})}/>
                         </LocalizationProvider>
                         </div>
-                        {/* <div className="form-group p-1">
-                            <label htmlFor="category">Category</label>
-                            <input type="text" className="form-control" id="category" placeholder="Enter transaction's category" 
-                            // value={login.password}
-                            // onChange={(e) => setlogin({...login, password: e.target.value})}
-                            />
-                        </div> */}
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

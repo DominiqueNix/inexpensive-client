@@ -21,7 +21,7 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
                                     userId: id
                                 })
 
-    //call expenses update function
+    //fetch expenses update function
     async function handleUpdateTransaction(e){
         e.preventDefault();
         let url = `${apiURL}/updateexpense`
@@ -41,11 +41,12 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
         
     }
 
-    //call expenses delete route
+    //fetches expenses delete route
     async function handleDeleteTrans(e){
         e.preventDefault();
+        let url = `${apiURL}/deleteexpense/${exp.id}`
         try{
-            const deleteTrans = await fetch(`${apiURL}/deleteexpense/${exp.id}`, {
+            const deleteTrans = await fetch(url, {
                 method: 'DELETE'
             })
             setSuccess(true)
@@ -82,7 +83,6 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
                                             <label htmlFor="name">Name</label>
                                             <input type="text" className="form-control" id="name" placeholder="Enter transaction name" name="name"
                                                 defaultValue={exp.name}
-                                                // value={addTrans.name}
                                                 onChange={(e) => setUpdateTrans({...updateTrans, name: e.target.value  })}
                                             />
                                         </div>
@@ -90,7 +90,6 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
                                             <label htmlFor="price">Price</label>
                                             <input type="text" className="form-control" id="price" placeholder="Enter transaction price" name="price"
                                                 defaultValue={exp.price}
-                                                // value={addTrans.price}
                                                 onChange={(e) => setUpdateTrans({...updateTrans, price: e.target.value  })}
                                             />
                                         </div>
@@ -100,21 +99,14 @@ export const SingleExpense =({exp, updating, setUpdating, categories, title, id,
                                             freeSolo
                                             id="categories"
                                             defaultValue={exp.category}
-                                            // key={success}
-                                            // disableClearable
-                                            // defaultValue={null}
                                             onChange={(e) => setUpdateTrans({...updateTrans, category:e.target.textContent})}
                                             options={categories}
                                             renderInput={(params) => <TextField 
-                                            onChange={(e) => {
-                                                setUpdateTrans({...updateTrans, category: e.target.value})
-                                                // console.log(e)
-                                            }}
+                                            onChange={(e) => setUpdateTrans({...updateTrans, category: e.target.value})}
                                             {...params} label="Search categories" 
                                             />}
                                         />
                                         <div className='mt-3'>
-                                            {/* <label htmlFor='date'>Date</label> */}
                                             <LocalizationProvider  dateAdapter={AdapterDayjs}>
                                                 <DatePicker id="date" defaultValue={dayjs(exp.date)} onChange={(e) =>{                                           // console.log(e)
                                                     setUpdateTrans({...updateTrans, date:`${e.$y}-${e.$M+1}-${e.$D}`})

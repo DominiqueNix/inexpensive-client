@@ -10,9 +10,6 @@ export const Home = () => {
         password: ""
     }
 
-    console.log(apiURL)
-    console.log(process.env.NODE_ENV)
-
     const [signup, setsignup] = useState(blankInfo)
 
     const [login, setlogin] = useState(blankInfo)
@@ -56,10 +53,11 @@ export const Home = () => {
 
     return(
         <div className="main-page">
+            <div id="cir-1"></div>
             <h1 className="text-center mt-5 display-2">WELCOME TO INEX$PEN$IVE</h1>
-            <p className="text-center display-6"><i>becuase nothing's too expensive when when you budget</i></p>
-
-            <section className="w-75 d-flex flex-row align-items-center justify-content-center mx-auto">
+            <p className="tag-line text-center"><i>because nothing's too expensive when when you budget</i></p>
+            <p className="text-center display-6 home-text">Sign up or Login to start saving</p>
+            <section className="w-75 d-flex flex-row align-items-center justify-content-around mx-auto ">
             <form className="home-form form text-white p-2 m-2 d-flex flex-column justify-content-center" onSubmit={handleLogin}>
                 <p className="display-6 text-center">Login</p>
                 <div className="form-group p-2">
@@ -78,8 +76,8 @@ export const Home = () => {
             </form>
             <form className="home-form form text-white p-2 m-2 d-flex flex-column justify-content-center" onSubmit={handleSignUp}>
             <p className="display-6 text-center">Sign up</p>
-                <div className="form-group">
-                    <label htmlFor="signupUsername p-2">Username</label>
+                <div className="form-group p-2">
+                    <label htmlFor="signupUsername">Username</label>
                     <input type="text" className="form-control" id="signupUsername" placeholder="Enter username" 
                     value={signup.username}
                     onChange={(e) => setsignup({...signup, username: e.target.value})}/>
