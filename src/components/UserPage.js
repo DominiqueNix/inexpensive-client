@@ -26,7 +26,7 @@ export const UserPage = () => {
 
 
     const [addTrans, setAddTrans] = useState({
-        type: "",
+        type: "income",
         name:"", 
         price: "",
         date: dayjs().format('YYYY-MM-DD'),
@@ -130,11 +130,11 @@ export const UserPage = () => {
 
                 <div className="middle-wrapper d-flex flex-column ">
                   <section className="total-wrapper d-flex align-items-center justify-content-center">
-                    <div className="total d-flex justify-content-around">                    
+                    <div className="total d-flex justify-content-between">                    
                         <section className="total-balace d-flex flex-column align-items-center justify-content-center p-2">
-                            <h1 className="display-6">Total Balance</h1>
+                            <h1 className="net-bal">Total Balance</h1>
                             { total !== 0 && (
-                                <p className="display-6">{total.toFixed(2)}</p>
+                                <p className="display-6" style={total < 0 ? {color: 'red'} : total < 100 ? {color: "#e57842"}:{color: 'green'}}>{total.toFixed(2)}</p>
                             )}
                              { totalIncPrice !== 0 && (
                                 <p><i className="bi bi-arrow-up-circle"></i> Income: ${totalIncPrice.toFixed(2)}</p>

@@ -36,7 +36,7 @@ export const Nav = ({userData, logout, id, navigate}) => {
                 <li className='my-2'><button><i className="bi bi-house"></i> Home</button></li>
                 <li className='my-2'><button><i className="bi bi-bar-chart"></i> Yearly</button></li>
                 <li className='my-2'><button onClick={logout}><i className="bi bi-box-arrow-left"></i> Logout</button></li>  
-                <li className='my-2'><button onClick={deleteUser} className='text-danger' data-toggle='modal' data-target='#deleteModal'><i className="bi bi-trash"></i> Delete Account</button></li>        
+                <li className='my-2'><button onClick={deleteUser} className='text-danger del-user' data-toggle='modal' data-target='#deleteModal'><i className="bi bi-trash"></i> Delete Account</button></li>        
             </ul>
 
             
