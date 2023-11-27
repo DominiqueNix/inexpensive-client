@@ -1,10 +1,5 @@
 import * as React from 'react';
 import {useState} from 'react'
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {Box, styled } from '@mui/system'
 import {Modal} from '@mui/base/Modal'
 import apiURL from '../api';
@@ -33,9 +28,9 @@ export const Nav = ({userData, logout, id, navigate}) => {
             <img className='logo' src={logo} alt='website logo'/>
             <h1 className="display-6 text-center border-bottom">Welcome, {userData.username}</h1>
             <ul className='h-50 d-flex flex-column my-5'>
-                <li className='my-2'><button><i className="bi bi-house"></i> Home</button></li>
-                <li className='my-2'><button><i className="bi bi-bar-chart"></i> Yearly</button></li>
-                <li className='my-2'><button onClick={logout}><i className="bi bi-box-arrow-left"></i> Logout</button></li>  
+                <li className='my-2'><button onClick={() => navigate(`/user/${id}`)}><i className="bi bi-house"></i> Home</button></li>
+                <li className='my-2'><button onClick={() => navigate(`/yearly/${id}`)}><i className="bi bi-bar-chart"></i> Yearly</button></li>
+                <li className='my-2'><button onClick={(e) => logout(e)}><i className="bi bi-box-arrow-left"></i> Logout</button></li>  
                 <li className='my-2'><button className='text-danger del-user' data-toggle='modal' data-target='#deleteModal'><i className="bi bi-trash"></i> Delete Account</button></li>        
             </ul>
         </div>
@@ -56,15 +51,5 @@ export const Nav = ({userData, logout, id, navigate}) => {
                     </div>
                 </div>
         </>
-        // <div className="navbar navbar-light m-3 rounded-pill d-flex justify-content-center">
-        //     <div className="d-flex justify-content-between w-75">
-        //         <p className="m-2 display-6 px-4">WELCOME, {userData.username}</p>
-        //         <div>
-        //             <button className="btn log-out p-3 m-2 display-4">Home</button>
-        //             <button className="btn log-out p-3 m-2 display-4">Yearly</button> 
-        //             <button className="btn log-out p-3 m-2 display-4" onClick={logout}>Log Out</button>
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
