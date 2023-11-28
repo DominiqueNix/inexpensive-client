@@ -1,42 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 :root{
   --lightgreen: #deffd3; 
   --navy: #1a1c63;
@@ -93,22 +54,12 @@
 }
 
 .logo{
-  /* margin-left: 27%; */
-  /* margin-top: 5%; */
   position: absolute;
   height: 5rem;
   left: 50%;
   transform: translateX(-50%);
 
 }
-/* #cir-1{
-  position: absolute;
-  height: 30rem;
-  width: 30rem;
-  border-radius: 50%;
-  background-color: rgba(173, 224, 153, .54);
-  z-index: 1;
-} */
 
 .tag-line{
   font-size: 2rem;
@@ -188,37 +139,12 @@
   margin-top: 20%;
 }
 
-/* .mostMade {
-  background-color: var(--lightgreen);
-  height: 85%;
-  width: 30%;
-}
-
-.mostSaved {
-  background-color: var(--lightgreen);
-  height: 100%;
-  width: 30%;
-} */
-
-/* .navbar{
-  background-color: var(--blue) !important;
-  box-shadow: inset 0 0 10px #000000;
-} */
-
-/* .log-out{
-  background-color: var(--purple);
-}
-
-.log-out:hover{
-  background-color: #7d7ec0;
-} */
-
 .expenses{
   background-color: var(--lightgreen);
   height: 85%;
   width: 22%;
   border-radius: 20px;
-  /* margin: 2rem; */
+  overflow: scroll;
 }
 
 .total-wrapper{
@@ -227,7 +153,6 @@
   width: 95%;
   margin-bottom: 1%;
   border-radius: 20px;
-  /* margin: 2rem; */
 }
 
 .total{
@@ -242,8 +167,6 @@
   height: 40%;
   width: 95%;
   border-radius: 20px;
-  /* margin: 2rem; */
-
 }
 .add-exp{
   background-color: var(--lightgreen);

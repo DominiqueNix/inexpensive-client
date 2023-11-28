@@ -27,7 +27,6 @@ export const Home = () => {
         const data = await signupPost.json();
         setsignup(blankInfo)
         const id = data.id
-        // console.log(data)
         navigate(`/user/${id}`)
     }
 
@@ -45,7 +44,6 @@ export const Home = () => {
         })
         const data = await loginPost.json();
         setlogin(blankInfo)
-        // console.log(data)
         const id = data.id
         navigate(`/user/${id}`)
     }

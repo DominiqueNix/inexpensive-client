@@ -41,11 +41,11 @@ export const Nav = ({userData, logout, id, navigate}) => {
                                 <h1 className='modal-title'>Delete Account</h1>
                             </div>
                             <div className='modal-body'>
-                                <p>Are you sure you want to delte your account? This action is unreversible.</p>
+                                <p>Are you sure you want to delete your account? This action is irreversible.</p>
                             </div>
                             <div className='modal-footer'>
                                 <button type="button" className='btn btn-secondary' data-dismiss="modal">Cancel</button>
-                                <button type="button" className='btn btn-primary' onClick={deleteUser} data-dismiss="modal">Delete Account</button>
+                                <button type="button" className='btn btn-danger' onClick={deleteUser} data-dismiss="modal">Delete Account</button>
                             </div>
                         </div>
                     </div>
