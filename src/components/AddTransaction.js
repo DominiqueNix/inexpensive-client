@@ -13,7 +13,6 @@ export const AddTransaction =({addTrans, setAddTrans, setSuccess, success, id, c
     async function handleAddTransaction(e){
         let url = `${apiURL}/addexpense`
         e.preventDefault();
-        console.log(addTrans)
         const postTrans = await fetch(url, {
             method: 'POST', 
             headers: {

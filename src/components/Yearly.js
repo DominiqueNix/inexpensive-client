@@ -12,9 +12,9 @@ export const Yearly = ({fetchUserData, userData, logout}) => {
 
     const [yealyTotals, setYearlyTotals] = useState("");
     const [dataSet, setdataSet] = useState(null);
-    const [mostSpent, setMostSpent] = useState(0);
-    const [mostSaved, setMostSaved] = useState(0);
-    const [mostMade, setMostMade] = useState(0);
+    const [mostSpent, setMostSpent] = useState({month: "", price: 0});
+    const [mostSaved, setMostSaved] = useState({month: "", price: 0});
+    const [mostMade, setMostMade] = useState({month: "", price: 0});
 
     const { userId } = useParams();
     const navigate = useNavigate();
@@ -104,28 +104,75 @@ export const Yearly = ({fetchUserData, userData, logout}) => {
                   month: "Dec"
               }
           ]) 
-        let mostSaved = 0; 
-        let mostSpent = 0;
-        let mostMade =0;
-        for(let i=0; i <13; i++){
+        let mostSavedTemp = 0; 
+        let mostSpentTemp = 0;
+        let mostMadeTemp =0;
+        let mostSavedMonth = ""; 
+        let mostSpentMonth = "";
+        let mostMadeMonth ="";
+        for(let i=0; i < 12; i++){
             
-            if(data[0][i] > mostSpent){
-                mostSpent = data[0][i]
+            if(data[0][i] > mostSpentTemp){
+                mostSpentTemp = data[0][i]
+                mostSpentMonth = findMonth(i)
             }
-            if(data[1][i] > mostMade){
-                mostMade = data[1][i]
+            if(data[1][i] > mostMadeTemp){
+                mostMadeTemp = data[1][i]
+                mostMadeMonth = findMonth(i)
             }
             
             let currDiff = data[1][i] - data[0][i];
-            if(currDiff > mostSaved){
-                mostSaved = currDiff
+            if(currDiff > mostSavedTemp){
+                mostSavedTemp = currDiff
+                mostSavedMonth = findMonth(i)
             }
             
         }
 
-        setMostMade(mostMade);
-        setMostSaved(mostSaved);
-        setMostSpent(mostSpent)
+        setMostMade({...mostMade,month:mostMadeMonth, price: mostMadeTemp});
+        setMostSaved({...mostSaved,month:mostSavedMonth, price: mostSavedTemp});
+        setMostSpent({...mostSpent, month:mostSpentMonth, price: mostSpentTemp})
+    }
+
+    function findMonth(num) {
+        switch(num){
+            case 0:
+            return "January"
+            break;
+            case 1:
+            return "February"
+            break;
+            case 2:
+            return "March"
+            break;
+            case 3:
+            return "April"
+            break;
+            case 4:
+            return "May"
+            break;
+            case 5:
+            return "June"
+            break;
+            case 6:
+            return "July"
+            break;
+            case 7:
+            return "August"
+            break;
+            case 8:
+            return "September"
+            break;
+            case 9:
+            return "October"
+            break;
+            case 10:
+            return "November"
+            break;
+            case 11:
+            return "December"
+            break; 
+        }
     }
     
     useEffect(()=>{
@@ -169,16 +216,16 @@ export const Yearly = ({fetchUserData, userData, logout}) => {
                     </section>  
                     <div className="top-container d-flex flex-row justify-content-between">
                         <section className="mostSpent">
-                            <h1 className=" text-center">The most you've spent in a month: </h1>
-                            <p className="text-center">${mostSpent}</p>
+                            <h1 className=" text-center">You spent the most in {mostSpent.month} </h1>
+                            <p className="text-center">${mostSpent.price.toFixed(2)}</p>
                         </section>
                         <section className="mostMade">
-                        <h1 className="text-center">The most you've made in a month: </h1>
-                        <p className="text-center">${mostMade}</p>
+                        <h1 className="text-center">You made the most in {mostMade.month} </h1>
+                        <p className="text-center">${mostMade.price.toFixed(2)}</p>
                         </section>
                         <section className="mostSaved">
-                        <h1 className="text-center">The most you've saved in a month: </h1>
-                        <p className="text-center">${mostSaved}</p>
+                        <h1 className="text-center">You saved the most in {mostSaved.month} </h1>
+                        <p className="text-center">${mostSaved.price.toFixed(2)}</p>
                         </section>  
                     </div>
                   </>
