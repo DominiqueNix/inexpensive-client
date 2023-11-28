@@ -52,7 +52,7 @@ export const Home = () => {
     return(
         <div className="main-page">
             <div id="cir-1"></div>
-            <h1 className="text-center mt-5 display-2">WELCOME TO INEX$PEN$IVE</h1>
+            <h1 className="text-center mt-5 display-2">WELCOME TO INEXPEN$IVE</h1>
             <p className="tag-line text-center"><i>because nothing's too expensive when when you budget</i></p>
             <p className="text-center display-6 home-text">Sign up or Login to start saving</p>
             <section className="w-75 d-flex flex-row align-items-center justify-content-around mx-auto ">
